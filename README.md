@@ -1,5 +1,4 @@
 # OpenRA
-
 A Libre/Free Real Time Strategy game engine supporting early Westwood classics.
 
 * Website: [http://www.openra.net](http://www.openra.net)

@@ -86,9 +86,9 @@ namespace OpenRA
 
 			World = world;
 			ActorID = world.NextAID();
-			if (initDict.Contains<OwnerInit>())
+			if (initDict.Contains<OwnerInit>()) {
 				Owner = init.Get<OwnerInit, Player>();
-
+			}
 			if (name != null)
 			{
 				name = name.ToLowerInvariant();
@@ -186,9 +186,11 @@ namespace OpenRA
 			// `yield`) will avoid the need to allocate a large collection.
 			// For small amounts of renderables, allocating a small collection can often be faster and require less
 			// memory than creating the objects needed to represent a sequence.
-			foreach (var render in renders)
-				foreach (var renderable in render.Render(this, wr))
+			foreach (var render in renders) {
+				foreach (var renderable in render.Render(this, wr)) {
 					yield return renderable;
+				}
+			}
 		}
 
 		public void QueueActivity(bool queued, Activity nextActivity)
@@ -224,8 +226,8 @@ namespace OpenRA
 
 		public override bool Equals(object obj)
 		{
-			var o = obj as Actor;
-			return o != null && Equals(o);
+			var actor = obj as Actor;
+			return actor != null && Equals(actor);
 		}
 
 		public bool Equals(Actor other)
